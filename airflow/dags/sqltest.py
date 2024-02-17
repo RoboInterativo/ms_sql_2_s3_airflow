@@ -34,10 +34,10 @@ def my_dag():
         "name": "estaff_cut",
         "mssql.driver": "pyodbc",
         "pyodbc.config": "ODBC Driver 17 for SQL Server",
-        "hostname": "192.168.0.4",
+        "hostname": "172.17.0.1",
         "port": "1433",
-        "user": "",
-        "password": ""}
+        "user": "SA",
+        "password": "5#BabnU3q"}
 
         # password=""
         # userid=''
