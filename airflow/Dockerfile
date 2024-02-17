@@ -22,8 +22,8 @@ RUN chmod -R 777 /var/run/httpd
 
 #RUN ACCEPT_EULA=Y apt-get install -y unixodbc-dev
 RUN ACCEPT_EULA=Y apt-get install -y msodbcsql17
-RUN ACCEPT_EULA=Y apt-get install -y mssql-tools
-RUN ACCEPT_EULA=Y apt-get install -y sqlcmd
+RUN  ACCEPT_EULA=Y apt-get install -y mssql-tools18 unixodbc-dev
+# RUN ACCEPT_EULA=Y apt-get install -y sqlcmd
 
 # RUN apt-get install -y netcat
 RUN echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
