@@ -60,10 +60,10 @@ services:
     command: scheduler
     extra_hosts:
       - "host.local:10.214.72.23"
-networks:
-  mynetwork:
-    external: true
-    name: host
+# networks:
+#   mynetwork:
+#     external: true
+#     name: host
 volumes:
   volrun:
   vollog:
