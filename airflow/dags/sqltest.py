@@ -34,28 +34,34 @@ def my_dag():
         "name": "estaff_cut",
         "mssql.driver": "pyodbc",
         "pyodbc.config": "ODBC Driver 17 for SQL Server",
-        "hostname": "t-estaff-dl.dellin.local",
+        "hostname": "192.168.0.4",
         "port": "1433",
-        "user": "dellin\\ashilo",
-        "password": "eXB4021205Bia$"}
+        "user": "",
+        "password": ""}
 
-        password="eXB4021205Bia$"
-        userid='ashilo'
-        kinit = '/usr/bin/kinit'
-        kinit_args = [ kinit, userid ]
-        kinit = Popen(kinit_args, stdin=PIPE, stdout=PIPE, stderr=PIPE)
-        kinit.stdin.write( bytes('{}/n'.format(password) ,"UTF8"))
-
-        kinit.wait()
+        # password=""
+        # userid=''
+        # kinit = '/usr/bin/kinit'
+        # kinit_args = [ kinit, userid ]
+        # kinit = Popen(kinit_args, stdin=PIPE, stdout=PIPE, stderr=PIPE)
+        # kinit.stdin.write( bytes('{}/n'.format(password) ,"UTF8"))
+        #
+        # kinit.wait()
 
         driver_config = database.get("pyodbc.config")
+        # connection_lnk_pyodbc = f"DRIVER={driver_config};" \
+        #                                                f"SERVER={database['hostname']};" \
+        #                                                f"DATABASE={database['name']};" \
+        #                                                f"APP=CDC Connector;" \
+        #                                                f"Encrypt=yes;" \
+        #                                                f"TrustServerCertificate=yes;" \
+        #                                                f"Authentication=ActiveDirectoryIntegrated;" \
+        #                                                f"UID={database['user']}"
+
         connection_lnk_pyodbc = f"DRIVER={driver_config};" \
                                                        f"SERVER={database['hostname']};" \
                                                        f"DATABASE={database['name']};" \
-                                                       f"APP=CDC Connector;" \
-                                                       f"Encrypt=yes;" \
-                                                       f"TrustServerCertificate=yes;" \
-                                                       f"Authentication=ActiveDirectoryIntegrated;" \
+                                                       f"PWD={database['password']};" \
                                                        f"UID={database['user']}"
 
 
