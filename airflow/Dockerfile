@@ -2,7 +2,8 @@ FROM apache/airflow:2.8.1
 USER root
 RUN curl https://packages.microsoft.com/keys/microsoft.asc | sudo tee /etc/apt/trusted.gpg.d/microsoft.asc
 
-RUN echo deb [arch=amd64,armhf,arm64] https://packages.microsoft.com/ubuntu/20.04/mssql-server-2022 focal main >/etc/apt/sources.list.d/mssql.list
+RUN echo """deb [arch=amd64,armhf,arm64] https://packages.microsoft.com/ubuntu/20.04/mssql-server-2022 focal main \n\
+deb [arch=amd64,armhf,arm64] https://packages.microsoft.com/ubuntu/20.04/prod focal main"""  >/etc/apt/sources.list.d/mssql.list
 RUN apt-get update
 
 RUN apt-get upgrade -y
